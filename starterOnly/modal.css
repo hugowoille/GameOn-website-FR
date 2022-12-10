@@ -30,6 +30,8 @@ img {
   padding-right: 1rem;
 }
 
+/* navbar */
+
 .topnav {
   overflow: hidden;
   margin: 3.5%;
@@ -101,6 +103,8 @@ img {
   }
 } 
 
+/* main */
+
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -114,6 +118,8 @@ main {
 
 
 }
+
+/* subscribe button */
 
 .modal-btn {
   font-size: 145%;
@@ -169,6 +175,7 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+
 .content {
   margin: 5% auto;
   width: 100%;
@@ -182,6 +189,17 @@ main {
   color: #fff;
   padding-top: 10px;
 }
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 .modal-body {
   padding: 15px 8%;
@@ -517,13 +535,5 @@ footer {
   }
 }
 
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-  to {
-    opacity: 1;
-  }
-}
+
 

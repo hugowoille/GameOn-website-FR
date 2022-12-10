@@ -16,6 +16,9 @@
       <div class="header-logo">
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
+
+<!-- nav-bar -->
+
     <div class="main-navbar">
       
       <a href="#" class="active"><span>Accueil</span></a>
@@ -29,8 +32,17 @@
     </div>
     </div>
   </div>
+
+<!-- main -->
+
     <main>
+
+<!-- splashscreen -->
+
       <div class="hero-section">
+
+<!-- splascreen text content -->
+
         <div class="hero-content">
           <h1 class="hero-headline">
             Marathon national<br>
@@ -44,6 +56,9 @@
             je m'inscris
           </button>
         </div>
+
+<!-- splascreen img content -->
+
         <div class="hero-img">
           <img src="./bg_img.jpg" alt="img" />
         </div>
@@ -52,19 +67,26 @@
         </button>
       </div>
 
+<!-- modal -->
+
       <div class="bground">
-        <div class="content">
-          <span class="close"></span>
-          <div class="modal-body">
+        <div id="modal_content" class="content">
+          <span id="close-modal" class="close"></span>
+          <div id="modbody" class="modal-body">
+
+<!-- form -->
+
             <form
               name="reserve"
               action="index.html"
               method="get"
               onsubmit="return validate();"
             >
-              <div
-                class="formData">
-                <label>Prénom</label><br>
+
+<!-- firstname -->
+
+              <div class="formData">
+                <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
@@ -73,9 +95,11 @@
                   minlength="2"
                 /><br>
               </div>
-              <div
-                class="formData">
-                <label>Nom</label><br>
+
+<!-- lastname -->
+
+              <div class="formData">
+                <label for="last">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
@@ -83,9 +107,11 @@
                   name="last"
                 /><br>
               </div>
-              <div
-                class="formData">
-                <label>E-mail</label><br>
+
+<!-- email -->
+
+              <div class="formData">
+                <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
                   type="email"
@@ -93,9 +119,11 @@
                   name="email"
                 /><br>
               </div>
-              <div
-                class="formData">
-                <label>Date de naissance</label><br>
+
+<!-- birthdate -->
+
+              <div class="formData">
+                <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
@@ -103,14 +131,15 @@
                   name="birthdate"
                 /><br>
               </div>
-              <div
-                class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+
+<!-- quantity of participation -->
+
+              <div class="formData">
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-              <div
-                class="formData">
+              <div class="formData">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -216,5 +245,6 @@
       </p>
     </footer>
     <script src="modal.js"></script>
+    <script src="form.js"></script>
   </body>
 </html>
