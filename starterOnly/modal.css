@@ -143,8 +143,6 @@ main {
   font-family: var(--font-slab);
 }
 
-/* Modal form */
-
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -162,6 +160,27 @@ main {
 .smFont {
   font-size: 16px;
 }
+
+
+
+/* custom cc */
+
+.error{
+  display:none;
+  color: red;
+  font-size: 0.7em;
+ 
+}
+.validate{
+  display: none;
+  color: rgb(138, 250, 138);
+  font-size: 0.7em;
+}
+
+
+
+
+/* Modal form */
 
 .bground {
   display: none;
