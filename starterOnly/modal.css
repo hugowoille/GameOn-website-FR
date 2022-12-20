@@ -177,6 +177,12 @@ main {
   font-size: 0.7em;
 }
 
+.form-succesfull{
+  color :rgb(138, 250, 138);
+  font-size: 0.7em;
+  display:none
+}
+
 
 
 
