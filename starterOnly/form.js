@@ -1,14 +1,12 @@
 
 
-
-
-
 const form = document.getElementById('form-signup')
-
 form.addEventListener('submit', validate)
 
 function validate(event) {
   event.preventDefault();
+
+ /* firstname */
 
   const getFirstnameValue = document.getElementById('first').value
   const errorFirstname = document.querySelector('.error-firstname')
@@ -20,6 +18,8 @@ function validate(event) {
     errorFirstname.style.display = "none";
   }
 
+/* lastname */
+
   const getLastnameValue = document.getElementById('last').value
   const errorLastname = document.querySelector('.error-lastname');
 
@@ -30,6 +30,8 @@ function validate(event) {
     errorLastname.style.display = "none";
   }
 
+/* email */
+
   const getEmailValue = document.getElementById('email').value
   const errorEmail = document.querySelector('.error-email')
   const validateEmail = document.querySelector('.validate-email')
@@ -38,12 +40,13 @@ function validate(event) {
 
   if (testEmail === false) {
     errorEmail.style.display = "block";
-    validateEmail.style.display = "none"
     hasError = true;
   } else {
     errorEmail.style.display = "none"
-    validateEmail.style.display = "block"
   }
+
+/* number of participation */
+
   const getQuantityValue = document.getElementById('quantity').value
   const errorQuantity = document.querySelector('.error-quantity')
   const quantityRegexp = new RegExp(/^\d+$/)
@@ -57,41 +60,26 @@ function validate(event) {
     errorQuantity.style.display = "none";
   }
 
+  /* location */
 
-  /* const inputChecked = document.querySelectorAll('.checkbox-input').checked
-  console.log(inputChecked) */
-  /* while(inputChecked === false){
-    document.querySelector('.error-radio').style.display = "block"
-  } */
-  const formRadio = document.getElementById('radio-form')
-  console.log(formRadio)
+  
 
 
-  for (let i = 0; i < formRadio.length; i++) {
-    console.log(formRadio[i])
-    if (formRadio[i].checked) {
-      document.querySelector('.error-radio').style.display = "none"
-    } else {
-      document.querySelector('.error-radio').style.display = "block"
-    }
-  }
-
-  /* if(formRadio === false){
-    document.querySelector('.error-radio').style.display = "block"
-  }else{
-    document.querySelector('.error-radio').style.display = "none"
-
-  } */
-
-  const termOfService = document.getElementById('checkbox1')
-
-  if (termOfService.checked === false) {
+  /* terms of use */
+  const termsOfuse = document.getElementById('checkbox1').checked
+  if(termsOfuse === false){
     document.querySelector('.error-terms-of-rules').style.display = "block"
-  } else {
+    hasError = true;
+  }else{
     document.querySelector('.error-terms-of-rules').style.display = "none"
   }
+ 
+
+
+  /* successful message */
+
   if (hasError === false) {
-    //affiche le message de confirmation
+    document.querySelector('.form-successfull').style.display = "block"
   }
 
 }
@@ -99,8 +87,19 @@ function validate(event) {
 
 
 
-/* const inputChecked = document.querySelectorAll('.checkbox-input')
-    console.log("mes input check avec queryselector : ", inputChecked.checked) */
+const locationInputs = document.getElementsByTagName('location')
+  console.log(locationInputs)
+  const errorOption = document.getElementById('erreur-radio')
+  const checkRadio = () => {
+    for(let i = 0; i < locationInputs.length; i++){
+      if(locationInputs[i].checked){
+        alert("c'est check !")
+      }else{
+        errorOption.style.display = "block"
+      }
+    }
+  }
+
 
 
 
