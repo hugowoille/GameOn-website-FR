@@ -62,8 +62,21 @@ function validate(event) {
 
   /* location */
 
-  
+  const locationInputs = document.querySelectorAll("input[name='location']")
+  const errorOption = document.getElementById('erreur-radio')
 
+  let inputChecked = 0;
+
+    for(let i = 0; i < locationInputs.length; i++){
+      if(locationInputs[i].checked === false){
+        inputChecked++
+    }}
+    if(inputChecked >= locationInputs.length){
+      errorOption.style.display = "block"
+    }else{
+      errorOption.style.display = "none"
+    }
+   
 
   /* terms of use */
   const termsOfuse = document.getElementById('checkbox1').checked
@@ -87,18 +100,8 @@ function validate(event) {
 
 
 
-const locationInputs = document.getElementsByTagName('location')
-  console.log(locationInputs)
-  const errorOption = document.getElementById('erreur-radio')
-  const checkRadio = () => {
-    for(let i = 0; i < locationInputs.length; i++){
-      if(locationInputs[i].checked){
-        alert("c'est check !")
-      }else{
-        errorOption.style.display = "block"
-      }
-    }
-  }
+
+  
 
 
 
