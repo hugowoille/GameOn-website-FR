@@ -6,31 +6,42 @@ form.addEventListener('submit', validate)
 function validate(event) {
   event.preventDefault();
 
- /* firstname */
+  let hasError = false
+
+  const displayError = (myVar,errorMessage) => {
+    
+    if(!myVar){
+      errorMessage.style.display = "block";
+      hasError = true;
+    } else {
+      errorMessage.style.display = "none";
+    }
+  }
+
+  const displayErrorName = (name,errorMessage) => {
+    if(name.length <= 2){
+      errorMessage.style.display = "block"
+      hasError = true;
+    } else {
+      errorMessage.style.display = "none"
+    }
+  }
+
+  /* firstname */
 
   const getFirstnameValue = document.getElementById('first').value
   const errorFirstname = document.querySelector('.error-firstname')
-  let hasError = false
-  if (getFirstnameValue.length <= 2) {
-    errorFirstname.style.display = "block";
-    hasError = true;
-  } else {
-    errorFirstname.style.display = "none";
-  }
 
-/* lastname */
+  displayErrorName(getFirstnameValue,errorFirstname)
+
+  /* lastname */
 
   const getLastnameValue = document.getElementById('last').value
   const errorLastname = document.querySelector('.error-lastname');
 
-  if (getLastnameValue.length <= 2) {
-    errorLastname.style.display = "block";
-    hasError = true;
-  } else {
-    errorLastname.style.display = "none";
-  }
+  displayErrorName(getLastnameValue,errorLastname)
 
-/* email */
+  /* email */
 
   const getEmailValue = document.getElementById('email').value
   const errorEmail = document.querySelector('.error-email')
@@ -38,60 +49,42 @@ function validate(event) {
   const emailRegExp = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$', 'g')
   testEmail = emailRegExp.test(getEmailValue)
 
-  if (testEmail === false) {
-    errorEmail.style.display = "block";
-    hasError = true;
-  } else {
-    errorEmail.style.display = "none"
-  }
+  displayError(testEmail,errorEmail)
 
-/* number of participation */
+  /* birthDate */
+
+  const getBirthDateValue = document.getElementById('birthdate').value
+  const errorBirthDate = document.querySelector('.error-birthdate')
+
+  displayError(getBirthDateValue,errorBirthDate)
+
+
+  /* number of participation */
 
   const getQuantityValue = document.getElementById('quantity').value
   const errorQuantity = document.querySelector('.error-quantity')
   const quantityRegexp = new RegExp(/^\d+$/)
-
   testQuantity = quantityRegexp.test(getQuantityValue)
 
-  if (testQuantity === false) {
-    errorQuantity.style.display = "block";
-    hasError = true;
-  } else {
-    errorQuantity.style.display = "none";
-  }
+  displayError(testQuantity,errorQuantity);
 
   /* location */
-
-  const locationInputs = document.querySelectorAll("input[name='location']")
+ 
   const errorOption = document.getElementById('erreur-radio')
+  const valueOfFormRadio = document.forms['form-signup'].elements.location.value;
 
-  let inputChecked = 0;
-
-    for(let i = 0; i < locationInputs.length; i++){
-      if(locationInputs[i].checked === false){
-        inputChecked++
-    }}
-    if(inputChecked >= locationInputs.length){
-      errorOption.style.display = "block"
-    }else{
-      errorOption.style.display = "none"
-    }
-   
+  displayError(valueOfFormRadio,errorOption)
 
   /* terms of use */
-  const termsOfuse = document.getElementById('checkbox1').checked
-  if(termsOfuse === false){
-    document.querySelector('.error-terms-of-rules').style.display = "block"
-    hasError = true;
-  }else{
-    document.querySelector('.error-terms-of-rules').style.display = "none"
-  }
- 
 
+  const termsOfuse = document.getElementById('checkbox1').checked
+  const ErrorTermsOfUse = document.querySelector('.error-terms-of-rules')
+
+  displayError(termsOfuse,ErrorTermsOfUse)
 
   /* successful message */
 
-  if (hasError === false) {
+  if (!hasError) {
     document.querySelector('.form-successfull').style.display = "block"
   }
 
@@ -100,8 +93,6 @@ function validate(event) {
 
 
 
-
-  
 
 
 
