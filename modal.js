@@ -21,10 +21,12 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
+const myForm = document.getElementById('form-signup')
 
 document.getElementById('close-modal').addEventListener('click', function(){
   
   modalbg.style.display = "none"
-   
+  myForm.reset()
+  
  })
 

@@ -9,7 +9,6 @@ function validate(event) {
   let hasError = false
 
   const displayError = (myVar,errorMessage) => {
-    
     if(!myVar){
       errorMessage.style.display = "block";
       hasError = true;
@@ -45,8 +44,7 @@ function validate(event) {
 
   const getEmailValue = document.getElementById('email').value
   const errorEmail = document.querySelector('.error-email')
-  const validateEmail = document.querySelector('.validate-email')
-  const emailRegExp = new RegExp('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$', 'g')
+  const emailRegExp = new RegExp(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'g')
   testEmail = emailRegExp.test(getEmailValue)
 
   displayError(testEmail,errorEmail)
@@ -86,6 +84,7 @@ function validate(event) {
 
   if (!hasError) {
     document.querySelector('.form-successfull').style.display = "block"
+    form.reset()
   }
 
 }
