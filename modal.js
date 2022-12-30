@@ -27,6 +27,6 @@ document.getElementById('close-modal').addEventListener('click', function(){
   
   modalbg.style.display = "none"
   myForm.reset()
-  
+  document.querySelector('.form-successfull').style.display = "none"
  })
 
