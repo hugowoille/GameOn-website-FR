@@ -17,8 +17,8 @@ function validate(event) {
     }
   }
 
-  const displayErrorName = (name,errorMessage) => {
-    if(name.length <= 2){
+  const displayErrorName = (condition,errorMessage) => {
+    if(condition){
       errorMessage.style.display = "block"
       hasError = true;
     } else {
@@ -31,14 +31,14 @@ function validate(event) {
   const getFirstnameValue = document.getElementById('first').value
   const errorFirstname = document.querySelector('.error-firstname')
 
-  displayErrorName(getFirstnameValue,errorFirstname)
+  displayErrorName(getFirstnameValue.length <= 2, errorFirstname);
 
   /* lastname */
 
   const getLastnameValue = document.getElementById('last').value
   const errorLastname = document.querySelector('.error-lastname');
 
-  displayErrorName(getLastnameValue,errorLastname)
+  displayErrorName(getLastnameValue.length <= 2, errorLastname);
 
   /* email */
 
